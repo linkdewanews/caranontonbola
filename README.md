@@ -34,7 +34,7 @@ Proyek ini dirancang dengan fokus utama pada **kinerja, pengalaman pengguna (UX)
 1.  **Clone repository ini (jika sudah diunggah ke GitHub):**
     ```bash
     git clone https://github.com/linkdewanews/caranontonbola.git
-    cd [NAMA_DIREKTORI]
+    cd caranontonbola
     ```
 
 2.  **Instal dependensi:**
