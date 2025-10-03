@@ -1,0 +1,98 @@
+<template>
+  <main class="container mx-auto px-4 py-12">
+    <section class="text-center py-10">
+      <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tight leading-tight">
+        Arsip Artikel Resmi Caranontonbola: <span class="text-cyan-400">Berita, Analisis, dan Link Nonton Terkini</span>
+      </h1>
+    </section>
+
+    <!-- Article Grid -->
+    <section class="my-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="article in articles" :key="article.id" class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-cyan-500/20 transition-shadow">
+          <img :src="article.image" :alt="article.alt" class="w-full h-48 object-cover">
+          <div class="p-4">
+            <p class="text-sm font-semibold text-red-500">{{ article.category }}</p>
+            <h3 class="text-lg font-bold mt-1 hover:text-yellow-400">
+              <RouterLink :to="article.link">{{ article.title }}</RouterLink>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagination -->
+    <section class="flex justify-center items-center space-x-4 my-12">
+      <span class="px-4 py-2 rounded bg-gray-700 text-white">Halaman 1</span>
+      <a href="#" class="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700">2</a>
+      <a href="#" class="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700">3</a>
+      <span>...</span>
+      <a href="#" class="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700">Berikutnya &raquo;</a>
+    </section>
+
+  </main>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
+import { useHead } from '@vueuse/head';
+
+// SEO Meta Tags
+useHead({
+  title: 'Arsip Artikel - Caranontonbola',
+  meta: [
+    {
+      name: 'description',
+      content: 'Kumpulan arsip artikel berita, analisis, jadwal, dan link nonton legal seputar Piala Dunia 2026 dan sepak bola internasional.',
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://caranontonbola.it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Artikel"
+          }
+        ]
+      })
+    }
+  ]
+});
+
+const articles = ref([
+  {
+    id: 1, image: 'https://images.unsplash.com/photo-1721404020670-cd89ad27ced1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Grup Neraka Piala Dunia', category: 'LINK LEGAL',
+    title: '[EKSKLUSIF] Bocoran 3 Pertandingan Grup Neraka yang WAJIB Kamu Tonton!', link: '/artikel/bocoran-grup-neraka'
+  },
+  {
+    id: 2, image: 'https://images.unsplash.com/photo-1527871252447-4ce32da643c6?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Jadwal Timnas Indonesia', category: 'KUALIFIKASI',
+    title: 'JADWAL LENGKAP: Kapan Timnas Indonesia Main? Ini Link Nontonnya!', link: '/artikel/jadwal-timnas'
+  },
+  {
+    id: 3, image: 'https://images.unsplash.com/photo-1572139332398-724fbaaa46a0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Analisis Taktik Bola', category: 'ANALISIS',
+    title: 'Bukan Cuma Tiki-Taka, 2 Taktik Ini Akan Guncang Piala Dunia 2026', link: '/artikel/analisis-taktik'
+  },
+  { id: 4, image: 'https://images.unsplash.com/photo-1562493205-0c1659a3cf4c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Prediksi Skor Bola', category: 'ANALISIS', title: 'Prediksi Inggris vs Jerman: Siapa yang Akan Menang?', link: '/artikel/prediksi-inggris-jerman' },
+  { id: 5, image: 'https://plus.unsplash.com/premium_photo-1733313613724-3ea5f9eec5ca?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Hak Siar TV', category: 'LINK LEGAL', title: 'RESMI: TVRI Pegang Hak Siar Mayoritas Laga World Cup!', link: '/artikel/tvri-hak-siar' },
+  { id: 6, image: 'https://images.unsplash.com/photo-1562493205-0c1659a3cf4c?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Pemain Muda Berbakat', category: 'ANALISIS', title: '5 Wonderkid yang Siap Bersinar di Piala Dunia 2026', link: '/artikel/wonderkid-2026' },
+  { id: 7, image: 'https://images.unsplash.com/photo-1625007387168-cb24505afb14?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Kontroversi VAR', category: 'BERITA', title: 'Kontroversi VAR Terbaru di Laga Kualifikasi Zona CONMEBOL', link: '/artikel/kontroversi-var' },
+  { id: 8, image: 'https://images.unsplash.com/photo-1572139332398-724fbaaa46a0?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Streaming Aman', category: 'LINK LEGAL', title: 'Panduan Streaming Aman Tanpa VPN dan Anti Blokir', link: '/artikel/streaming-aman' },
+  { id: 9, image: 'https://images.unsplash.com/photo-1563947917928-f7902975e12e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Formasi Timnas', category: 'ANALISIS', title: 'Analisis Formasi 3-4-3 Timnas Spanyol di Bawah Pelatih Baru', link: '/artikel/formasi-spanyol' },
+  { id: 10, image: 'https://images.unsplash.com/photo-1678281967101-d350b502d17b?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Stadion Baru Piala Dunia', category: 'BERITA', title: 'Megah! Intip 3 Stadion Baru yang Akan Digunakan di Amerika Utara', link: '/artikel/stadion-baru' },
+  { id: 11, image: 'https://images.unsplash.com/photo-1569218691961-33a3d6207d16?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Sejarah Piala Dunia', category: 'FEATURE', title: 'Momen Ikonik dalam Sejarah Piala Dunia yang Tak Terlupakan', link: '/artikel/sejarah-piala-dunia' },
+  { id: 12, image: 'https://images.unsplash.com/photo-1721404073114-c627f05e29f7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', alt: 'Jadwal Lengkap TV', category: 'JADWAL', title: 'Jadwal Siaran Langsung TV Nasional untuk Pekan Ini', link: '/artikel/jadwal-tv' },
+]);
+
+</script>

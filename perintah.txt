@@ -1,0 +1,17 @@
+Ambil kode komponen **Homepage.vue** dan modifikasi JSON-LD Schema untuk memperbaiki error kritis terbaru: "Jenis objek untuk kolom 'itemReviewed' tidak valid" pada AggregateRating.
+
+**Tugas Wajib Modifikasi pada Objek 'itemReviewed':**
+
+1.  **Tambahkan serviceType:** Di dalam objek `itemReviewed` yang memiliki `"@type": "Service"`, tambahkan properti **`serviceType`** untuk mendefinisikan layanan tersebut.
+
+**Target Struktur JSON-LD yang Benar (Fokus pada itemReviewed):**
+
+```json
+"itemReviewed": {
+  "@type": "Service",
+  "name": "Layanan Panduan Link Legal Piala Dunia 2026",
+
+  // INI YANG HARUS DITAMBAHKAN AGAR VALID
+  "serviceType": "Informational Service" 
+}
+Verifikasi Structure: Verifikasi juga bahwa objek terluar lo (yang memiliki properti aggregateRating) juga memiliki properti serviceType atau description untuk mendukung konteksnya. (Cek baris ke-11 di screenshot lo, serviceType sudah ada, tapi pastikan isinya benar).

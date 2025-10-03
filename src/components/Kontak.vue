@@ -1,0 +1,90 @@
+<template>
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto bg-gray-800/50 rounded-lg p-8 shadow-lg">
+      <h1 class="text-4xl font-black text-center mb-8 text-cyan-400">Hubungi Kami: Pertanyaan & Kerjasama Resmi</h1>
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        
+        <!-- Contact Info -->
+        <div class="text-lg text-gray-300 space-y-6">
+          <p>
+            Kami selalu terbuka untuk pertanyaan, masukan, atau peluang kerjasama. Silakan hubungi kami melalui detail di bawah ini atau gunakan formulir kontak di samping.
+          </p>
+          <div>
+            <h2 class="text-xl font-bold text-cyan-300">Email Resmi</h2>
+            <a href="mailto:admin@caranontonbola.com" class="hover:underline">admin@caranontonbola.com</a>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-cyan-300">Media Sosial</h2>
+            <div class="flex space-x-4 mt-2">
+              <a href="#" class="hover:text-cyan-400">Facebook</a>
+              <a href="#" class="hover:text-cyan-400">X (Twitter)</a>
+              <a href="#" class="hover:text-cyan-400">Instagram</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <form @submit.prevent="handleSubmit" class="space-y-4">
+          <div>
+            <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Nama Anda</label>
+            <input type="text" id="name" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="John Doe" required>
+          </div>
+          <div>
+            <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Email Anda</label>
+            <input type="email" id="email" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="nama@email.com" required>
+          </div>
+          <div>
+            <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Pesan Anda</label>
+            <textarea id="message" rows="4" class="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-500 block w-full p-2.5" placeholder="Tulis pesan Anda di sini..."></textarea>
+          </div>
+          <button type="submit" class="w-full text-white bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+            Kirim Pesan
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+</template>
+
+<script setup>
+import { useHead } from '@vueuse/head';
+
+// SEO Meta Tags & Schema
+useHead({
+  title: 'Kontak - Caranontonbola',
+  meta: [
+    {
+      name: 'description',
+      content: 'Hubungi tim Caranontonbola untuk pertanyaan, masukan, atau peluang kerjasama resmi. Temukan email dan kontak sosial media kami di sini.',
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://caranontonbola.it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Kontak"
+          }
+        ]
+      })
+    }
+  ]
+});
+
+const handleSubmit = () => {
+  // Simulate form submission
+  alert('Terima kasih atas pesan Anda! (Simulasi Pengiriman)');
+};
+</script>

@@ -1,0 +1,71 @@
+<template>
+  <main class="container mx-auto px-4 py-12">
+    <div class="max-w-4xl mx-auto bg-gray-800/50 rounded-lg p-8 shadow-lg">
+      <h1 class="text-4xl font-black text-center mb-8 text-cyan-400">Kebijakan Privasi Situs Caranontonbola</h1>
+      <div class="prose prose-invert max-w-none text-lg text-gray-300 space-y-6">
+        <p class="text-sm text-gray-400">Terakhir diperbarui: 4 Oktober 2025</p>
+        
+        <p>
+          Privasi pengunjung kami sangat penting bagi kami. Dokumen kebijakan privasi ini menguraikan jenis informasi pribadi yang diterima dan dikumpulkan oleh Caranontonbola dan bagaimana informasi tersebut digunakan.
+        </p>
+
+        <h2 class="text-2xl font-bold text-cyan-300">1. Pengumpulan Data</h2>
+        <p>
+          Situs kami **tidak mengumpulkan data pribadi sensitif** seperti nama, alamat, atau nomor telepon dari pengunjung secara langsung. Informasi yang kami kumpulkan bersifat non-pribadi dan digunakan untuk analisis statistik.
+        </p>
+
+        <h2 class="text-2xl font-bold text-cyan-300">2. Log Files dan Cookies</h2>
+        <p>
+          Seperti banyak situs Web lain, Caranontonbola menggunakan log file dan cookies. Informasi dalam log file meliputi alamat protokol internet (IP), jenis browser, Internet Service Provider (ISP), stempel tanggal/waktu, dan jumlah klik untuk menganalisis tren. Kami menggunakan layanan standar seperti **Google Analytics** untuk tujuan ini. Cookies digunakan untuk menyimpan informasi tentang preferensi pengunjung, tetapi tidak melacak informasi pribadi yang dapat diidentifikasi.
+        </p>
+
+        <h2 class="text-2xl font-bold text-cyan-300">3. Tautan Pihak Ketiga (Outbound Links)</h2>
+        <p>
+          Caranontonbola secara eksplisit **hanya menyediakan tautan keluar (outbound link) ke sumber resmi** dan pemegang hak siar yang sah. Kami tidak bertanggung jawab atas konten atau kebijakan privasi dari situs pihak ketiga tersebut. Kami menyarankan Anda untuk membaca kebijakan privasi dari setiap situs web yang Anda kunjungi setelah meninggalkan situs kami.
+        </p>
+
+        <h2 class="text-2xl font-bold text-cyan-300">4. Persetujuan</h2>
+        <p>
+          Dengan menggunakan situs web kami, Anda dengan ini menyetujui Kebijakan Privasi kami dan menyetujui syarat dan ketentuannya.
+        </p>
+      </div>
+    </div>
+  </main>
+</template>
+
+<script setup>
+import { useHead } from '@vueuse/head';
+
+// SEO Meta Tags & Schema
+useHead({
+  title: 'Kebijakan Privasi - Caranontonbola',
+  meta: [
+    {
+      name: 'description',
+      content: 'Pelajari bagaimana Caranontonbola menangani data dan privasi pengunjung. Kami berkomitmen pada keamanan dan transparansi.',
+    },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://caranontonbola.it/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Kebijakan Privasi"
+          }
+        ]
+      })
+    }
+  ]
+});
+</script>
